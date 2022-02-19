@@ -28,3 +28,11 @@ yarn start
 - FireBase
 - Google API （墙，认证， 比较繁琐）
 
+
+
+```js
+1. Clear watchman watches: watchman watch-del-all
+ 2. Delete node_modules and run yarn install
+ 3. Reset Metro's cache: yarn start --reset-cache
+ 4. Remove the cache: rm -rf /tmp/metro-*
+```
