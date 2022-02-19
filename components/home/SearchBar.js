@@ -16,7 +16,8 @@ export default function SearchBar({cityHandler}) {
                 key:"AIzaSyATiAqIXBARofRD2apZcPQ1eEWZPH4fPV4"
             }}
             onPress={(data, details = null) => {
-                console.log('data =========== ',data, details);
+                const city = data.description.split(',')[0]
+                cityHandler(city)
             }}
             placeholder='Search'
             styles={{
