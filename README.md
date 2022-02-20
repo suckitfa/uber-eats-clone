@@ -19,9 +19,20 @@ yarn start
 使用现有的AutoComplete组件代替，GooglePlacesAutoComplete
 或者自己封装一个基于高德地图的组件 （这个有待研究, 很有意思 , 可以从 GooglePlacesAutoComplete源码入手）
 ```
+2. Divider无法显示
+
+![image-20220220110413849](./assets/notesimg/image-20220220110413849.png)
+
+缺啥补啥, 报错明显表示是没在包里面引用到啥啥.......【克服受害者心态，多google, 直接干就好了】
+
+```sh
+yarn add react-native-safe-area-view react-native-safe-area-context
+```
+
 
 
 ### 内容
+
 - ReactNative
 - React 
 - Redux
