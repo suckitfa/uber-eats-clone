@@ -1,12 +1,32 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 
+const yelpRestaurantInfo = {
+  name:"Farhouse Kitchen Thai Cuisine",
+  price:"$$",
+  views:'1500',
+  rating:'4.5',
+  categories:[{title:"Thai"},{title:"Vegetarian"}],
+  image:"",
+}
+
+const {
+    name,
+    price,
+    image,
+    views,
+    rating,
+    categories
+  } = yelpRestaurantInfo;
+// fomat the categories
+const fomattedCategories = categories.map(category => category.title).join('·');
+const description = `${fomattedCategories} ${price ? '·' + price : ''} · ${rating} · (${views}+)`;
 // const image = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
 
-const image = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+// const image = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
 
 const title = "Farhouse Kitchen Thai Cuisine"
-const description = "Thai Comfort Food $$  (29123+)"
+// const description = "Thai Comfort Food $$  (29123+)"
 export default function About() {
   return (
     <View>

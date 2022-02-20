@@ -40,6 +40,7 @@ yarn add react-native-safe-area-view react-native-safe-area-context
 - FireBase
 - Google API （墙，认证， 比较繁琐）
 
+### 刚好看了3个小时
 
 
 ```js
