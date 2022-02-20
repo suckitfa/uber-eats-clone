@@ -20,7 +20,7 @@ yarn start
 或者自己封装一个基于高德地图的组件 （这个有待研究, 很有意思 , 可以从 GooglePlacesAutoComplete源码入手）
 ```
 2. Divider无法显示
-
+s
 ![image-20220220110413849](./assets/notesimg/image-20220220110413849.png)
 
 缺啥补啥, 报错明显表示是没在包里面引用到啥啥.......【克服受害者心态，多google, 直接干就好了】
@@ -29,7 +29,8 @@ yarn start
 yarn add react-native-safe-area-view react-native-safe-area-context
 ```
 
-
+### 组件的抽象
+关于MenuItem的抽象,这里我想抽象成FoodPrice,FoodTitle,FoodDescription ; 作者将其抽象为FoodInfo，price， title, description都是通过`props`传入的。在这里我抽象的粒度太小了
 
 ### 内容
 
