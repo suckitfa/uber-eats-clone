@@ -33,33 +33,43 @@ export const localRestaurants = [
     },
 ];
 
-export default function RestaurantItems({restaurantData}) {
+export default function RestaurantItems({restaurantData,navigation}) {
   return (
-    <TouchableOpacity 
-        // 消除颜色退去效果
-        activeOpacity={1}
-        style={{marginButton:10,}}
-    >
+      <>
         {restaurantData.map((restaurant,index)=>(
-            <View 
-                style={{
-                marginTop:10,
-                padding:15,
-                backgroundColor:"white",
-                }}
+            <TouchableOpacity 
                 key={index}
+                // 消除颜色退去效果
+                activeOpacity={1}
+                style={{marginButton:10,}}
+                // 屏幕跳转的同时，传递信息到下一个页面
+                onPress={
+                    () => navigation.navigate("RestaurantDetail",{
+                        ...restaurant,
+                        image:restaurant.image_url,
+                        reviews:restaurant.review_count,
+                    })
+                }
             >
-                <RestaurantImage 
-                    image={restaurant.image_url}
-                />    
-                <RestaurantInfo 
-                    name={restaurant.name} 
-                    rating={restaurant.rating}
-                />
-            </View>
+                <View 
+                    style={{
+                    marginTop:10,
+                    padding:15,
+                    backgroundColor:"white",
+                    }}
+                    key={index}
+                >
+                    <RestaurantImage 
+                        image={restaurant.image_url}
+                    />    
+                    <RestaurantInfo 
+                        name={restaurant.name} 
+                        rating={restaurant.rating}
+                    />
+                </View>
+            </TouchableOpacity>
         ))}
-    </TouchableOpacity>
-
+    </>
   )
 }
 

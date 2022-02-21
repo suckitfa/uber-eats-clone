@@ -49,3 +49,16 @@ yarn add react-native-safe-area-view react-native-safe-area-context
  3. Reset Metro's cache: yarn start --reset-cache
  4. Remove the cache: rm -rf /tmp/metro-*
 ```
+
+
+### 关于ES6对象解构的一点点总结
+- 对象解构重命名
+```js
+const {image_url:image} = route.params
+// 将原本为image_url的属性，从命名为iamge
+```
+- 对象解构默认值
+```js
+const {name = "Some Canteen",reviews = 0} = route.params
+// = 给属性提供默认值
+```

@@ -80,9 +80,13 @@ export default function MenuItems() {
     <ScrollView showsVerticalScrollIndicator={false}>
       {
         foods.map((food,index) => (
-          <View>
+          <View key={index}>
             <MenuItem key={index} food={food}/>
-            <Divider width={0.5} />
+            <Divider 
+              width={0.5} 
+              orientation='vertical' 
+              style={{marginHorizontal:20}}
+            />
           </View>
         ))
       }

@@ -4,9 +4,15 @@ import React from 'react'
 const yelpRestaurantInfo = {
   name:"Farhouse Kitchen Thai Cuisine",
   price:"$$",
-  views:'1500',
+  reviews:'1500',
   rating:'4.5',
-  categories:[{title:"Thai"},{title:"Vegetarian"}],
+  categories:[
+    {title:"Thai"},
+    {title:"Vegetarian"},
+    {title:"Vegan"},
+    {title:"Gluten-free"},
+    {title:"Dessert"},
+  ],
   image:"",
 }
 
@@ -14,45 +20,52 @@ const {
     name,
     price,
     image,
-    views,
+    reviews,
     rating,
     categories
   } = yelpRestaurantInfo;
-// fomat the categories
-const fomattedCategories = categories.map(category => category.title).join('·');
-const description = `${fomattedCategories} ${price ? '·' + price : ''} · ${rating} · (${views}+)`;
-// const image = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
 
-// const image = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
 
 const title = "Farhouse Kitchen Thai Cuisine"
-// const description = "Thai Comfort Food $$  (29123+)"
-export default function About() {
-  return (
-    <View>
-      <RestaurantImage iamge={image}/>
-      <RestaurantTitle title={title}/>
-      <RestaurantDescription description={description }/>
-    </View>
-  )
+
+export default function About({route}) {
+  const {
+      image,
+      name,
+      price,
+      rating,
+      reviews,
+      categories      
+    } = route.params;
+    console.log("params = ", route.params);
+    const fomattedCategories = categories.map(category => category.title).join(' · ');
+    const description = `${fomattedCategories} ${price ? '·' + price : ''} · ${rating} · (${reviews}+)`;
+
+    return (
+      <View>
+        <RestaurantImage iamge={image}/>
+        <RestaurantName name={name}/>
+        <RestaurantDescription description={description }/>
+      </View>
+    )
 }
 
 const RestaurantImage = ({image}) => (
   <Image 
-    // source={{uri:image}} 
-    source={require('../../assets/images/bg2.jpg')}
+    source={{uri:image}} 
+    // source={require('../../assets/images/bg2.jpg')}
     style={{ width: "100%", height: 200 }} 
   />
 );
 
-const RestaurantTitle = ({title}) => (
+const RestaurantName = ({name}) => (
   <Text style={{
     fontSize: 29,
     fontWeight: "600",
     marginTop: 10,
     marginHorizontal:15,
   }}>
-    {title}
+    {name}
   </Text>
 );
 

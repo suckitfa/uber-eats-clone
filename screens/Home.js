@@ -9,7 +9,7 @@ import { Divider } from 'react-native-elements/dist/divider/Divider'
 import BottomTabs from '../components/home/BottomTabs'
 const YELP_API_KEY = "HUdUtTw9Pcmr8xFWIlMI2ynmIwcjfIor7g_TmvSKRoV5mnB-l94hRvibNahpQPvfnww3wX6ZjmjAWmgXQH6aXPH1NOPaMUFFjzs5_cI7-NuRTemai31djoDlNQ4RYnYx"
 
-export default function Home() {
+export default function Home({navigation}) {
   const [restaurantData,setRestaurantData] = useState(localRestaurants);
   const [city,setCity] = useState("San Francisco");
   const [activeTab,setActiveTab] = useState("Delivery")
@@ -43,14 +43,13 @@ export default function Home() {
             <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
             <SearchBar cityHandler={setCity}/>
         </View>
-        {/* Resturants */}
         <ScrollView showsHorizontalScrollIndicator={false}>
           <Categories />
           <RestaurantItems 
             restaurantData={restaurantData}
+            navigation={navigation}
           />
         </ScrollView>
-        {/* ButtonTabs */}
         <Divider size={100}/>
         <BottomTabs />
     </SafeAreaView>
