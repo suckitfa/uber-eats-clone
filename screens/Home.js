@@ -43,14 +43,17 @@ export default function Home({navigation}) {
             <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
             <SearchBar cityHandler={setCity}/>
         </View>
-        <ScrollView showsHorizontalScrollIndicator={false}>
+        
+        <ScrollView showsHorizontalScrollIndicator={false} >
           <Categories />
           <RestaurantItems 
             restaurantData={restaurantData}
             navigation={navigation}
           />
         </ScrollView>
+        
         <Divider size={100}/>
+        
         <BottomTabs />
     </SafeAreaView>
   )

@@ -8,9 +8,15 @@ export default function RestaurantDetail({route,navigation}) {
   return (
     <View>
         <About route={route}/>
+        
         <Divider size={1.8} style={{marginVertical:20}}/>
+        
         <MenuItems />
-        <ViewCart navigation={navigation} restaurantName={route.params.name}/>
+        
+        <ViewCart 
+            navigation={navigation} 
+        />
+        
     </View>
   )
 }
